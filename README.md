@@ -65,7 +65,7 @@ Individually done exercises of part 1 of the one day workshop.
     * A wide variety of MCP servers are aldready available. **Caution must be taken when running MCP servers** found on the web because of potentially insecure or malicious implementations
 * **Steps:**
     1. VS Code => Shift+Control+P (Win) or Shift+CMD+P (Mac)
-    2. > MCP: Add server...
+    2. \> MCP: Add server...
     3. Docker image => mcp/postgres
     4. "Install mcp/postgres from mcp?" => select "Allow"
     5. Postgres URL: postgresql://postgres:changethis@host.docker.internal:5432/app
