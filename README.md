@@ -101,3 +101,47 @@ Individually done exercises of part 1 of the one day workshop.
         * [GitLab](https://mcp.so/server/gitlab/modelcontextprotocol)
         * [Playwright](https://mcp.so/server/playwright-mcp/microsoft)
         * [Perplexity](https://mcp.so/server/perplexity/ppl-ai)
+
+
+### PostgreSQL MCP Trouble shooting
+If you are having trouble connecting to your MCP server, try the following configurations:
+
+Mac
+```json
+{
+    "servers": {
+        "postgres": {
+            "command": "docker",
+            "args": [
+                "run",
+                "-i",
+                "--rm",
+                "-e",
+                "POSTGRES_URL",
+                "mcp/postgres",
+                "postgresql://postgres:postgres@host.docker.internal:5432/library_app"
+            ],
+            "env": {
+                "POSTGRES_URL": "postgresql://postgres:postgres@host.docker.internal:5432/library_app"
+            }
+        }
+    }
+}
+```
+
+Linux
+```json
+{
+    "servers": {
+        "postgres": {
+            "command": "docker",
+            "args": [
+                "run", 
+                "-i", 
+                "--rm", 
+                "mcp/postgres", 
+                "postgresql://postgres:postgres@172.17.0.1:5432/taptodine"]
+            }
+    }
+}
+```
