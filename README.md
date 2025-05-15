@@ -8,7 +8,7 @@ Individually done exercises of part 1 of the one day workshop.
 * **Purpose:** Setup a new project to work with for the following exercises
 * **Steps:**
     1. Create a new empty projeft using a language and frameworks you're familiar with. The topic can be e.g. a REST API, web UI, or a command line tool.
-    2. Initialize a local git repository for the project
+    2. Initialize a local git repository for the project and add .gitignore TODO explain why
     3. 
 
 ### Copilot Settings
@@ -20,6 +20,7 @@ Individually done exercises of part 1 of the one day workshop.
         - GitHub › Copilot: Enable
         - GitHub › Copilot › Chat › Agent: Auto Fix
         - GitHub › Copilot › Next Edit Suggestions: Enabled
+        - Chat › Agent: Enabled
     4. Make sure the following setting is enabled
         - GitHub › Copilot › Chat › Code Generation: Use Instruction Files
     5. See the following settings and click on "edit in settings.json" Think about what kind of additions would be useful in your technological environment.
@@ -68,7 +69,7 @@ Individually done exercises of part 1 of the one day workshop.
     2. \> MCP: Add server...
     3. Docker image => mcp/postgres
     4. "Install mcp/postgres from mcp?" => select "Allow"
-    5. Postgres URL: postgresql://postgres:changethis@host.docker.internal:5432/app
+    5. Postgres URL: postgresql://postgres:postgres@host.docker.internal:5432/library_app
     6. "Enter Server ID" => "Postgres"
     7. "Choose where to save the configuraton" => select "Workspace settings"
     8. mcp.json should be opened by the IDE
@@ -78,14 +79,25 @@ Individually done exercises of part 1 of the one day workshop.
 
 ### Testing the PostgreSQL MCP server
 * **Purpose:** Try out and test the PostgreSQL MPC server agains a database
+* **Prerequisities:**
+    * Docker installed
 * **Steps:**
-    * ToDo: instructions for running a PostgreSQL DB using Docker Compose (contains DB initiation scripts and test data)
-    * Try out the tool e.g. with the following prompt: "What is the schema of my database #query"
+    * cd mcp-exercise
+    * docker compose up db
+    * Copilot Chat => Agent Mode Selected
+    * Make sure from the tools menu that the Postgres MCP Server and its tool "query" are enabled
+    * Prompt: "#query what's the schema of my database?"
+    * Prompt "Show all book loans"
+    * Prompt: "Show all users who have at least one loan"
     * Think about how the information provided by the MCP server could be utilised in prompts? How could it help build complete, AI poweered development flows?
 
 ### Other MCP Servers
 * **Purpose:** Try out and test the PostgreSQL MPC server agains a database
 * **Steps:**
     * Browse to http://mcp.so
-    * ToDo: find MCP servers that could help you in development
-
+    * Take a look at some of the other MCP servers available. Try to find ones that you could use to integrate Copilot with your development tools. Some suggestions:
+        * [Slack](https://mcp.so/server/slack/modelcontextprotocol)
+        * [GitHub](https://mcp.so/server/github/modelcontextprotocol)
+        * [GitLab](https://mcp.so/server/gitlab/modelcontextprotocol)
+        * [Playwright](https://mcp.so/server/playwright-mcp/microsoft)
+        * [Perplexity](https://mcp.so/server/perplexity/ppl-ai)
