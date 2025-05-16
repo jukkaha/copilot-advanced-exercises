@@ -53,10 +53,9 @@ Individually done exercises of part 1 of the one day workshop.
         * o3/04 mini
     3. Pay attention to the proactive and interactive nature of the Agent mode:
         * Agent mode uses the search index to search relevant content from the workspace
-        * If it needs to use a tool, it asks for the permission from the user
+        * If it needs to use a tool or run something in the terminal, it asks for the permission from the user
         * It notices if it produces compilation errrors and proposes fixes to them automatically
-        * 
-    2. 
+        * Dependeing on the situation, it could also modify or make additions to unit tests or even try to run them
 
 ### Debugging
 * **Purpose:**  If/when you run into problems while developng your application, use Copilot's features to debug your code and undertand error messagrs and stack traces.
@@ -73,7 +72,7 @@ Individually done exercises of part 1 of the one day workshop.
     4. Give a name to the prompt file
     5. Think about what kind of prompt files would be useful at your work and create a prompt file according to yur needs.
     6. Test your prompt file in the chat by typing / and the name of your prompt file.
-    7. See the documentation for instructions on how to use e.g. user input in prompt files.
+    7. See the [documentation](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-file-structure) for instructions on how to use e.g. user input in prompt files.
     8. Example prompt file:
         ```md
         ---
@@ -112,7 +111,9 @@ Individually done exercises of part 1 of the one day workshop.
     2. \> MCP: Add server...
     3. Docker image => mcp/postgres
     4. "Install mcp/postgres from mcp?" => select "Allow"
-    5. Postgres URL: postgresql://postgres:postgres@host.docker.internal:5432/library_app
+    5. Postgres URL:
+        * Mac: postgresql://postgres:postgres@host.docker.internal:5432/library_app
+        * Codespaces / Linux: postgresql://postgres:postgres@172.17.0.1:5432/library_app
     6. "Enter Server ID" => "Postgres"
     7. "Choose where to save the configuraton" => select "Workspace settings"
     8. mcp.json should be opened by the IDE
@@ -140,15 +141,15 @@ Individually done exercises of part 1 of the one day workshop.
     1. Create a new prompt file (see the instructions above)
     2. Copy-paste this into the file:
     ```md
-        ---
-        mode: 'agent'
-        tools: ['query']
-        description: 'Generate or update the ER diagram of the database using Mermaid syntax.'
-        ---
-        Use #query tool to get description of the PostgreSQL database schema.
-        Then generate an Entity Relationship diagram based on the schema. Use Mermaid
-        syntax to create the diagram. Create the diagram in file called ER.md.
-        Create the file if it doesn't exist yet or update the existing file.
+    ---
+    mode: 'agent'
+    tools: ['query']
+    description: 'Generate or update the ER diagram of the database using Mermaid syntax.'
+    ---
+    Use #query tool to get description of the PostgreSQL database schema.
+    Then generate an Entity Relationship diagram based on the schema. Use Mermaid
+    syntax to create the diagram. Create the diagram in file called ER.md.
+    Create the file if it doesn't exist yet or update the existing file.
     ```
     3. Test the prompt file by typing /er in the agent mode. Refine the prompt if Copilot is not able to fulfil the purpose of the prompt.
     4. If you want to see the resulted Mermaid diagram, push the file to a GitHub repository and open the file.
@@ -197,7 +198,7 @@ Linux
                 "-i", 
                 "--rm", 
                 "mcp/postgres", 
-                "postgresql://postgres:postgres@172.17.0.1:5432/taptodine"]
+                "postgresql://postgres:postgres@172.17.0.1:5432/library_app"]
             }
     }
 }
