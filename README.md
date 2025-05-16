@@ -1,5 +1,18 @@
-# Copilot Hackathon - Advanced Track
-Exercises for the GitHub Copilot Hackathon - Advanced Track
+# Copilot workshop - Advanced Track
+
+Exercises for the GitHub Copilot Workshop - Advanced Track. The exercises consist of two parts:
+* Part 1: Individually completed exercises for the morning part of the workshop
+* Part 2: Hackathon carried out in the afternoon in small groups, each group trying to complete an application using Copilot features within given time limit
+
+**Prerequisites:**
+* Visual Studio Code installed.
+* This repository cloned in VS Code
+    * File => New window
+    * Explorer (the file icons on the left hand side navigation)
+    * "Clone repository"
+* GitHub Copilot and Copilot Chat extensions installed
+* A terminal window open within VS Code (e.g., View > Terminal)
+* Docker or Podman installed (MCP exercises only)
 
 ## Part 1 exercises
 Individually completed exercises for part 1 of the one-day workshop.
@@ -233,3 +246,18 @@ If you don't have Docker installed and can't install it, you can use npm to run 
 To run the database locally without Docker, you can either use Podman to run the docker-compose.yml file
 or install the database on your workstation using PostgreSQL installers. You can also use any test database
 you are currently using for work.
+
+## Part 2: the hackathon
+Part 2 is a 2.5 hour hackathon carried out in groups.
+* The objective is to complete a simple application
+* Use the advanced features discussed during first part of the workshop as much as possible
+* Divide the work between the members or use mob programming
+* 3-4 members per group
+* Ideally mixed group of different skills, e.g. frontend and backend developers
+
+Each group chooses one of the following options:
+* [Gene Weaver - Dazzling DNA Destiny! (Data analysis)](https://github.com/EficodeDemoOrg/copilot-data-analysis-exercise/tree/main)
+* [The Finnish Happiness Factor Finder (Full stack)](https://github.com/EficodeDemoOrg/copilot-fullstack-requirements-exercise)
+* DB Admins, test automation engineers, IaC engineers and other non-develoeprs: come up with your own project idea. If needed, use Copilot to ideate.
+
+The results of each group are reviewed and discussed at the end of the hackathon.
