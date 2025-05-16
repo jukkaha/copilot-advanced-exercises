@@ -247,7 +247,7 @@ To run the database locally without Docker, you can either use Podman to run the
 or install the database on your workstation using PostgreSQL installers. You can also use any test database
 you are currently using for work.
 
-## Part 2: the hackathon
+## Part 2: The Hackathon
 Part 2 is a 2.5 hour hackathon carried out in groups.
 * The objective is to complete a simple application
 * Use the advanced features discussed during first part of the workshop as much as possible
