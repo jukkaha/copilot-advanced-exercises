@@ -7,9 +7,10 @@ Individually done exercises of part 1 of the one day workshop.
 ### Create a new project
 * **Purpose:** Setup a new project to work with for the following exercises
 * **Steps:**
-    1. Create a new empty projeft using a language and frameworks you're familiar with. The topic can be e.g. a REST API, web UI, or a command line tool.
-    2. Initialize a local git repository for the project and add .gitignore TODO explain why
-    3. 
+    1. Decide a topic for your application. If you need inspiratio, [see here](EXERCISE_APP_IDEAS.md).
+    2. Use programming languages and tech stack you're familiar with to work on your project. Initialize the project using npm, dotnet, create-react-app, mvn archtypes etc. to initialize a new project. 
+    2. Initialize a local git repository for the project.
+    3. Create a .gitignore file for the project. This is important since Copilot automatically [ignores files listed in .gitignore from the workspace index](https://code.visualstudio.com/docs/copilot/reference/workspace-context#_what-content-is-included-in-the-workspace-index)
 
 ### Copilot Settings
 * **Purpose:** Familiearize yourself with the configration options for Copilot, confifgure Copilto according to your needs, enable custom instructions.
@@ -44,15 +45,57 @@ Individually done exercises of part 1 of the one day workshop.
 ### Implement features using Agent mode
 * **Purpose:** Use agent mode to implement a couple of use cases in your application.
 * **Steps:**
-    1. Feature implementatin. Pay attention to the proactive and interactive nature of the Agent mode. Model suggestion.
-    2. /tests and /testframework
-    3. Edits to refactor the tests with the code
-    4. Use #terminalLastCommand and #terminalSelection in debgging
-    
+    1. Decide the first UI elements, API endpoints or other features you want to implement. Use Copilot's Agent mode to implement the features.
+    2. Try out different models while working with agent mode:
+        * Claude 3.7 Sonnet
+        * Claude 3.7 Sonnet Thinking
+        * GPT-4.1
+        * o3/04 mini
+    3. Pay attention to the proactive and interactive nature of the Agent mode:
+        * Agent mode uses the search index to search relevant content from the workspace
+        * If it needs to use a tool, it asks for the permission from the user
+        * It notices if it produces compilation errrors and proposes fixes to them automatically
+        * 
+    2. 
+
+### Debugging
+* **Purpose:**  If/when you run into problems while developng your application, use Copilot's features to debug your code and undertand error messagrs and stack traces.
+    1. #problems: shows the current errors and warnings in your workspace
+    2. #terminalLastCommand: adds last command and its output to the context. Great way to quickly understand failed terminal commands.
+    3. #terminalSelection: select text from terminal to add it into the prompt context. Great way to debug e.g. an error in development server output or to target the prompt to a specific line of the output of a failed terminal command.
 
 ### Prompt files
-* **Purpose:** Create prompt files to help in running repetative prompts
+* **Purpose:** Use prompt files to not repeat yourself when writing prompts for specific kinds tasks and workflows.
 * **Steps:**
+    1. In VS Code, use cmbinatin Shift+Command/Control+P to open the command palette.
+    2. Type Chat: new prompt file
+    3. Select prompts
+    4. Give a name to the prompt file
+    5. Think about what kind of prompt files would be useful at your work and create a prompt file according to yur needs.
+    6. Test your prompt file in the chat by typing / and the name of your prompt file.
+    7. See the documentation for instructions on how to use e.g. user input in prompt files.
+    8. Example prompt file:
+        ```md
+        ---
+        mode: 'agent'
+        tools: ['githubRepo', 'codebase']
+        description: 'Generate a new React form component'
+        ---
+        Your goal is to generate a new React form component based on the templates in #githubRepo contoso/react-templates.
+
+        Ask for the form name and fields if not provided.
+
+        Requirements for the form:
+        * Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
+        * Use `react-hook-form` for form state management:
+        * Always define TypeScript types for your form data
+        * Prefer *uncontrolled* components using register
+        * Use `defaultValues` to prevent unnecessary rerenders
+        * Use `yup` for validation:
+        * Create reusable validation schemas in separate files
+        * Use TypeScript types to ensure type safety
+        * Customize UX-friendly validation rules
+        ```
 
 ### Model Context Protocol recap and Postgres MCP server installation
 
@@ -80,7 +123,7 @@ Individually done exercises of part 1 of the one day workshop.
 ### Testing the PostgreSQL MCP server
 * **Purpose:** Try out and test the PostgreSQL MPC server agains a database
 * **Prerequisities:**
-    * Docker installed
+    * Docker installed.
 * **Steps:**
     * cd mcp-exercise
     * docker compose up db
@@ -91,11 +134,30 @@ Individually done exercises of part 1 of the one day workshop.
     * Prompt: "Show all users who have at least one loan"
     * Think about how the information provided by the MCP server could be utilised in prompts? How could it help build complete, AI poweered development flows?
 
+### Using PostgreSQL MCP Server together with prompt files
+* **Purpose:** Use a prompt file to automate the generation of ER-diagram based on the database schema.
+* **Steps:**
+    1. Create a new prompt file (see the instructions above)
+    2. Copy-paste this into the file:
+    ```md
+        ---
+        mode: 'agent'
+        tools: ['query']
+        description: 'Generate or update the ER diagram of the database using Mermaid syntax.'
+        ---
+        Use #query tool to get description of the PostgreSQL database schema.
+        Then generate an Entity Relationship diagram based on the schema. Use Mermaid
+        syntax to create the diagram. Create the diagram in file called ER.md.
+        Create the file if it doesn't exist yet or update the existing file.
+    ```
+    3. Test the prompt file by typing /er in the agent mode. Refine the prompt if Copilot is not able to fulfil the purpose of the prompt.
+    4. If you want to see the resulted Mermaid diagram, push the file to a GitHub repository and open the file.
+
 ### Other MCP Servers
 * **Purpose:** Try out and test the PostgreSQL MPC server agains a database
 * **Steps:**
-    * Browse to http://mcp.so
-    * Take a look at some of the other MCP servers available. Try to find ones that you could use to integrate Copilot with your development tools. Some suggestions:
+    1. Browse to http://mcp.so
+    2. Take a look at some of the other MCP servers available. Try to find ones that you could use to integrate Copilot with your development tools. Some suggestions:
         * [Slack](https://mcp.so/server/slack/modelcontextprotocol)
         * [GitHub](https://mcp.so/server/github/modelcontextprotocol)
         * [GitLab](https://mcp.so/server/gitlab/modelcontextprotocol)
@@ -116,14 +178,9 @@ Mac
                 "run",
                 "-i",
                 "--rm",
-                "-e",
-                "POSTGRES_URL",
                 "mcp/postgres",
                 "postgresql://postgres:postgres@host.docker.internal:5432/library_app"
-            ],
-            "env": {
-                "POSTGRES_URL": "postgresql://postgres:postgres@host.docker.internal:5432/library_app"
-            }
+            ]
         }
     }
 }
@@ -145,3 +202,23 @@ Linux
     }
 }
 ```
+#### No docker?
+If you don't have Docker installed and can't install it, you can use npm to run the server.
+
+```json
+{
+    "servers": {
+        "postgres": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-postgres",
+                "postgresql://localhost/mydb"
+            ]
+        }
+    }
+}
+```
+To run the database locally without Docker, you can either use Podman to run the docker-compose.yml file
+or install the database on your workstation using PostgreSQL installers. You can also use any test database
+yiu are currently using for work. 
