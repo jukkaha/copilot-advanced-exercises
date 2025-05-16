@@ -47,11 +47,12 @@ Individually completed exercises for part 1 of the one-day workshop.
 * **Steps:**
     1. Decide on the first UI elements, API endpoints, or other features you want to implement. Use Copilot's Agent mode to implement the features.
     2. Try out different models while working with agent mode:
+        * GPT-4.1 (now the Copilot default)
         * Claude 3.7 Sonnet
         * Claude 3.7 Sonnet Thinking
-        * GPT-4.1
         * o3/04 mini
-    3. Pay attention to the proactive and interactive nature of Agent mode:
+    3. See [GitHub Documentation](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) for recommendations on which model to use for different tasks. Check out also the [model multipliers](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests#model-multipliers) to understand premium request quotations and costs in the new subscription models.
+    4. Pay attention to the proactive and interactive nature of Agent mode:
         * Agent mode uses the search index to find relevant content from the workspace
         * If it needs to use a tool or run something in the terminal, it asks for permission from the user
         * It notices if it produces compilation errors and proposes fixes for them automatically
@@ -159,12 +160,11 @@ Individually completed exercises for part 1 of the one-day workshop.
 * **Steps:**
     1. Browse to http://mcp.so
     2. Take a look at some of the other MCP servers available. Try to find ones that you could use to integrate Copilot with your development tools. Some suggestions:
-        * [Slack](https://mcp.so/server/slack/modelcontextprotocol)
         * [GitHub](https://mcp.so/server/github/modelcontextprotocol)
         * [GitLab](https://mcp.so/server/gitlab/modelcontextprotocol)
         * [Playwright](https://mcp.so/server/playwright-mcp/microsoft)
         * [Perplexity](https://mcp.so/server/perplexity/ppl-ai)
-
+        * [Slack](https://mcp.so/server/slack/modelcontextprotocol)
 
 ### PostgreSQL MCP Troubleshooting
 
