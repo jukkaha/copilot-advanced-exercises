@@ -167,42 +167,52 @@ Individually done exercises of part 1 of the one day workshop.
 
 
 ### PostgreSQL MCP Trouble shooting
-If you are having trouble connecting to your MCP server, try the following configurations:
 
-Mac
-```json
-{
-    "servers": {
-        "postgres": {
-            "command": "docker",
-            "args": [
-                "run",
-                "-i",
-                "--rm",
-                "mcp/postgres",
-                "postgresql://postgres:postgres@host.docker.internal:5432/library_app"
-            ]
+Trouble using or connecting to the PostgreSQL MCP server?
+
+1. Make sure the configuration in mcp.json look like this:
+
+* Windows and Mac
+    ```json
+    {
+        "servers": {
+            "postgres": {
+                "command": "docker",
+                "args": [
+                    "run",
+                    "-i",
+                    "--rm",
+                    "mcp/postgres",
+                    "postgresql://postgres:postgres@host.docker.internal:5432/library_app"
+                ]
+            }
         }
     }
-}
-```
+    ```
 
-Linux
-```json
-{
-    "servers": {
-        "postgres": {
-            "command": "docker",
-            "args": [
-                "run", 
-                "-i", 
-                "--rm", 
-                "mcp/postgres", 
-                "postgresql://postgres:postgres@172.17.0.1:5432/library_app"]
-            }
+* Linux
+    ```json
+    {
+        "servers": {
+            "postgres": {
+                "command": "docker",
+                "args": [
+                    "run", 
+                    "-i", 
+                    "--rm", 
+                    "mcp/postgres", 
+                    "postgresql://postgres:postgres@172.17.0.1:5432/library_app"]
+                }
+        }
     }
-}
-```
+    ```
+2. Make sure the previous MCP Docker containers are killed before running the server again:
+    ```bash
+    % docker ps | grep mcp                                          
+    db599e110c3f   mcp/postgres                           "node dist/index.js …"   2 hours ago    Up 2 hours
+    % docker stop db599e110c3f
+    ```
+
 #### No docker?
 If you don't have Docker installed and can't install it, you can use npm to run the server.
 
