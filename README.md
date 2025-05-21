@@ -128,11 +128,16 @@ Individually completed exercises for part 1 of the one-day workshop.
     5. Postgres URL:
         * Mac: postgresql://postgres:postgres@host.docker.internal:5432/library_app
         * Codespaces / Linux: postgresql://postgres:postgres@172.17.0.1:5432/library_app
-    6. "Enter Server ID" => "Postgres"
-    7. "Choose where to save the configuration" => select "Workspace settings"
-    8. mcp.json should be opened by the IDE
-    9. Start the server by clicking on the play button in mcp.json
-    10. The tools provided by the MCP server should now be available in the tools menu in the Agent mode prompt box (make sure Agent mode is selected, then click on the wrench icon). You can enable or disable tools by ticking/unticking the boxes.
+    6. If you are next asked for port number, database name, username, and password: use values from the URL above
+        * Port: 5432
+        * Database name: library_app
+        * Username: postgres
+        * Password: postgres
+    7. "Enter Server ID" => "Postgres"
+    8. "Choose where to save the configuration" => select "Workspace settings"
+    9. mcp.json should be opened by the IDE
+    10. Start the server by clicking on the play button in mcp.json
+    11. The tools provided by the MCP server should now be available in the tools menu in the Agent mode prompt box (make sure Agent mode is selected, then click on the wrench icon). You can enable or disable tools by ticking/unticking the boxes.
 
 
 ### Testing the PostgreSQL MCP server
@@ -256,8 +261,9 @@ Part 2 is a 2.5 hour hackathon carried out in groups.
 * Ideally mixed group of different skills, e.g. frontend and backend developers
 
 Each group chooses one of the following options:
-* [Gene Weaver - Dazzling DNA Destiny! (Data analysis)](https://github.com/EficodeDemoOrg/copilot-data-analysis-exercise/tree/main)
-* [The Finnish Happiness Factor Finder (Full stack)](https://github.com/EficodeDemoOrg/copilot-fullstack-requirements-exercise)
+* [Gene Weaver - Dazzling DNA Destiny! (Data analysis)](https://github.com/hackathon-blue-crab-34/copilot-data-analysis-exercise/tree/main)
+* [The Finnish Happiness Factor Finder (Full stack)](https://github.com/hackathon-blue-crab-34/copilot-fullstack-requirements-exercise)
+* [The Silly Walk Grant Application Orchestrator (Backend)](https://github.com/hackathon-blue-crab-34/copilot-backend-requirement-exercise)
 * DB Admins, test automation engineers, IaC engineers and other non-develoeprs: come up with your own project idea. If needed, use Copilot to ideate.
 
 The results of each group are reviewed and discussed at the end of the hackathon.
