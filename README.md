@@ -261,9 +261,9 @@ Part 2 is a 2.5 hour hackathon carried out in groups.
 * Ideally mixed group of different skills, e.g. frontend and backend developers
 
 Each group chooses one of the following options:
-* [Gene Weaver - Dazzling DNA Destiny! (Data analysis)](https://github.com/hackathon-blue-crab-34/copilot-data-analysis-exercise/tree/main)
-* [The Finnish Happiness Factor Finder (Full stack)](https://github.com/hackathon-blue-crab-34/copilot-fullstack-requirements-exercise)
-* [The Silly Walk Grant Application Orchestrator (Backend)](https://github.com/hackathon-blue-crab-34/copilot-backend-requirement-exercise)
+* [The Finnish Happiness Factor Finder (Full stack)](https://github.com/EficodeDemoOrg/copilot-data-analysis-exercise)
+* [The Silly Walk Grant Application Orchestrator (Backend)](https://github.com/EficodeDemoOrg/copilot-backend-requirement-exercise)
+* [Gene Weaver - Dazzling DNA Destiny! (Data analysis)](https://github.com/EficodeDemoOrg/copilot-fullstack-requirements-exercise)
 * DB Admins, test automation engineers, IaC engineers and other non-develoeprs: come up with your own project idea. If needed, use Copilot to ideate.
 
 The results of each group are reviewed and discussed at the end of the hackathon.
