@@ -64,6 +64,63 @@ Individually completed exercises for part 1 of the one-day workshop.
         - (Patterns)
     5. Close the custom instructions file. Ask something about your project from Copilot and make sure that the custom-instructions.md is added automatically to every prompt you make.
 
+### Additional Custom Instructions Files
+* **Purpose:** Create an additional custom instructions file that targets specific parts of the codespace.
+* **In VSCode:** 
+* **Steps:**
+    1. Open the command palette (cmd+shift+p)
+    2. Start typing "Chat: New Instructions file" and select the command
+    3. Select '.github/instructions' as the location for the file
+    4. Give a descriptive name for the file, e.g. "backend", "javascript" etc.
+    5. Use the applyTo selector to target the instructions to a specific part of the code base, e.g. "applyTo: app/backend/**/*.ts"
+    6. Add some suitable custom instructions to the file
+    7. Make a prompt targeting a file that matches the selector, and check that the instructions file was included in the context.
+
+### Custom Chat Modes
+* **Purpose:** Create a custom chat mode tailored for specific tasks
+* **In VSCode:** 
+* **Steps:**
+    1. Read the [documentation](https://code.visualstudio.com/docs/copilot/chat/chat-modes#_custom-chat-modes) about the custom chat modes in VS Code
+    2. In the Copilot chat mode selector, select "Configure modes"
+    3. Select "Create new custom chat mode file"
+    4. Create a chat mode that for making an implementation plan for a new feature.
+    5. Add tools that could benefit the use case, such as fetch, codebase, usages.
+    6. Add suitable instructions in the body of the file, e.g. "Don't make any code edits, just generate a plan."
+
+### Prompt files
+* **Purpose:** Use prompt files to avoid repeating yourself when writing prompts for specific kinds of tasks and workflows.
+* **IDE Support:** Visual Studio Code
+* **Steps:**
+    1. In VS Code, use the combination Shift+Command/Control+P to open the command palette.
+    2. Type Chat: new prompt file
+    3. Select prompts
+    4. Give a name to the prompt file
+    5. Think about what kind of prompt files would be useful at your work and create a prompt file according to your needs.
+    6. Test your prompt file in the chat by typing / and the name of your prompt file.
+    7. See the [documentation](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-file-structure) for instructions on how to use, for example, user input in prompt files.
+    8. Example prompt file:
+        ```md
+        ---
+        mode: 'agent'
+        tools: ['githubRepo', 'codebase']
+        description: 'Generate a new React form component'
+        ---
+        Your goal is to generate a new React form component based on the templates in #githubRepo contoso/react-templates.
+
+        Ask for the form name and fields if not provided.
+
+        Requirements for the form:
+        * Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
+        * Use `react-hook-form` for form state management:
+        * Always define TypeScript types for your form data
+        * Prefer *uncontrolled* components using register
+        * Use `defaultValues` to prevent unnecessary rerenders
+        * Use `yup` for validation:
+        * Create reusable validation schemas in separate files
+        * Use TypeScript types to ensure type safety
+        * Customize UX-friendly validation rules
+        ```
+
 ### Implement features using Agent mode
 * **Purpose:** Use agent mode to implement a couple of use cases in your application.
 * **Steps:**
@@ -103,39 +160,6 @@ Individually completed exercises for part 1 of the one-day workshop.
  
     3. To ask Copilot in the CLI to suggest a command, run `gh copilot suggest` followed by the command that you want.
 
-### Prompt files
-* **Purpose:** Use prompt files to avoid repeating yourself when writing prompts for specific kinds of tasks and workflows.
-* **IDE Support:** Visual Studio Code
-* **Steps:**
-    1. In VS Code, use the combination Shift+Command/Control+P to open the command palette.
-    2. Type Chat: new prompt file
-    3. Select prompts
-    4. Give a name to the prompt file
-    5. Think about what kind of prompt files would be useful at your work and create a prompt file according to your needs.
-    6. Test your prompt file in the chat by typing / and the name of your prompt file.
-    7. See the [documentation](https://code.visualstudio.com/docs/copilot/copilot-customization#_prompt-file-structure) for instructions on how to use, for example, user input in prompt files.
-    8. Example prompt file:
-        ```md
-        ---
-        mode: 'agent'
-        tools: ['githubRepo', 'codebase']
-        description: 'Generate a new React form component'
-        ---
-        Your goal is to generate a new React form component based on the templates in #githubRepo contoso/react-templates.
-
-        Ask for the form name and fields if not provided.
-
-        Requirements for the form:
-        * Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
-        * Use `react-hook-form` for form state management:
-        * Always define TypeScript types for your form data
-        * Prefer *uncontrolled* components using register
-        * Use `defaultValues` to prevent unnecessary rerenders
-        * Use `yup` for validation:
-        * Create reusable validation schemas in separate files
-        * Use TypeScript types to ensure type safety
-        * Customize UX-friendly validation rules
-        ```
 
 ### Model Context Protocol recap and Postgres MCP server installation
 
