@@ -1,17 +1,14 @@
 # Copilot workshop - Advanced Track
 
 Exercises for the GitHub Copilot Workshop - Advanced Track. The exercises consist of two parts:
-* Part 1: Individually completed exercises for the morning part of the workshop
-* Part 2: Hackathon carried out in the afternoon in small groups, each group trying to complete an application using Copilot features within given time limit
+* Part 1: Individually completed exercises Workshop 1
+* Part 2: Hackathon carried out in Workshop 2 in small groups, each group trying to complete an application using Copilot features within given time limit
 
 **Prerequisites:**
-* Visual Studio Code installed.
-* This repository cloned in VS Code
-    * File => New window
-    * Explorer (the file icons on the left hand side navigation)
-    * "Clone repository"
+* Visual Studio Code installed (primary IDE for these exercises)
+* This repository cloned
 * GitHub Copilot and Copilot Chat extensions installed
-* A terminal window open within VS Code (e.g., View > Terminal)
+* A terminal window open within the IDE
 * Docker or Podman installed (MCP exercises only)
 
 ## Part 1 exercises
@@ -27,6 +24,7 @@ Individually completed exercises for part 1 of the one-day workshop.
 
 ### Copilot Settings
 * **Purpose:** Familiarize yourself with the configuration options for Copilot, configure Copilot according to your needs, and enable custom instructions.
+* **In VSCode:** 
 * **Steps:**
     1. Open VS Code settings
     2. Type Copilot in the search field
@@ -40,6 +38,17 @@ Individually completed exercises for part 1 of the one-day workshop.
     5. See the following settings and click on "edit in settings.json". Think about what kind of additions would be useful in your technological environment.
         - GitHub › Copilot › Chat › Review Selection: Instructions
         - GitHub › Copilot › Chat › Code Generation: Instructions
+
+* **Other IDEs:** 
+* **Steps:**
+    1. Open your IDE’s settings/preferences.
+    2. Search for "Copilot" in the settings.
+    3. Review and understand the following settings (names may vary by IDE):
+        - Enable/disable Copilot
+        - Enable Copilot Chat
+        - Enable Agent Mode (VS Code only)
+        - Enable custom instructions
+    4. For advanced customization, edit the Copilot settings JSON or equivalent configuration file if your IDE supports it.
 
 ### Custom instructions
 * **Purpose:** Create a custom instructions file for the project to help Copilot understand your coding conventions.
@@ -73,12 +82,30 @@ Individually completed exercises for part 1 of the one-day workshop.
 
 ### Debugging
 * **Purpose:**  If/when you run into problems while developing your application, use Copilot's features to debug your code and understand error messages and stack traces.
+* **In VSCode:** 
     1. #problems: shows the current errors and warnings in your workspace
     2. #terminalLastCommand: adds the last command and its output to the context. A great way to quickly understand failed terminal commands.
     3. #terminalSelection: select text from the terminal to add it into the prompt context. A great way to debug, for example, an error in development server output or to target the prompt to a specific line of the output of a failed terminal command.
 
+* **Other IDEs:** 
+    1. Use your IDE’s error/warning panel to view current issues.
+    2. Use Copilot Chat to analyze terminal output or error messages.
+    3. Select relevant output and ask Copilot for help understanding or fixing issues
+
+### Using Copilot in CLI and VSCode Terminal
+* **Purpose:**  You can use Copilot with the GitHub CLI and in VSCode terminal to get suggestions and explanations for the command line.
+* **In VSCode Terminal:** 
+    1. Open Inline chat (Ctrl + I for Windows) in the terminal
+    2. Ask questions about commands or suggestions to run in the terminal.
+* **In command line** 
+    1. See the [documentation](https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-in-the-cli) for instructions to install the extension
+    2. To ask Copilot in the CLI to explain a command, run `gh copilot explain` followed by the command that you want explained. Example `gh copilot explain "sudo apt-get"`
+ 
+    3. To ask Copilot in the CLI to suggest a command, run `gh copilot suggest` followed by the command that you want.
+
 ### Prompt files
 * **Purpose:** Use prompt files to avoid repeating yourself when writing prompts for specific kinds of tasks and workflows.
+* **IDE Support:** Visual Studio Code
 * **Steps:**
     1. In VS Code, use the combination Shift+Command/Control+P to open the command palette.
     2. Type Chat: new prompt file
@@ -113,6 +140,7 @@ Individually completed exercises for part 1 of the one-day workshop.
 ### Model Context Protocol recap and Postgres MCP server installation
 
 * **Purpose:** Understand how MCP servers work and how they can be run locally
+* **IDE Support:** Generally available (GA) in Copilot Chat for Visual Studio Code, in public preview for Copilot in Visual Studio, JetBrains, Eclipse, and Xcode.
 * **MCP Recap:**
     * MCP (Model Context Protocol) servers provide a standardized way to interact with various tools, services, and systems.
     * An MCP server is run locally on the developer's workstation, e.g., as a Docker container (remote servers are also possible using HTTP)
