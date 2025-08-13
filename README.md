@@ -22,34 +22,6 @@ Individually completed exercises for part 1 of the one-day workshop.
     3. Initialize a local git repository for the project.
     4. Create a .gitignore file for the project. This is important since Copilot automatically [ignores files listed in .gitignore from the workspace index](https://code.visualstudio.com/docs/copilot/reference/workspace-context#_what-content-is-included-in-the-workspace-index)
 
-### Copilot Settings
-* **Purpose:** Familiarize yourself with the configuration options for Copilot, configure Copilot according to your needs, and enable custom instructions.
-* **In VSCode:** 
-* **Steps:**
-    1. Open VS Code settings
-    2. Type Copilot in the search field
-    3. Go through the following settings and understand their purpose.
-        - GitHub › Copilot: Enable
-        - GitHub › Copilot › Chat › Agent: Auto Fix
-        - GitHub › Copilot › Next Edit Suggestions: Enabled
-        - Chat › Agent: Enabled
-    4. Make sure the following setting is enabled
-        - GitHub › Copilot › Chat › Code Generation: Use Instruction Files
-    5. See the following settings and click on "edit in settings.json". Think about what kind of additions would be useful in your technological environment.
-        - GitHub › Copilot › Chat › Review Selection: Instructions
-        - GitHub › Copilot › Chat › Code Generation: Instructions
-
-* **Other IDEs:** 
-* **Steps:**
-    1. Open your IDE’s settings/preferences.
-    2. Search for "Copilot" in the settings.
-    3. Review and understand the following settings (names may vary by IDE):
-        - Enable/disable Copilot
-        - Enable Copilot Chat
-        - Enable Agent Mode (VS Code only)
-        - Enable custom instructions
-    4. For advanced customization, edit the Copilot settings JSON or equivalent configuration file if your IDE supports it.
-
 ### Custom instructions
 * **Purpose:** Create a custom instructions file for the project to help Copilot understand your coding conventions.
 * **Steps:**
@@ -126,10 +98,6 @@ Individually completed exercises for part 1 of the one-day workshop.
 * **Steps:**
     1. Decide on the first UI elements, API endpoints, or other features you want to implement. Use Copilot's Agent mode to implement the features.
     2. Try out different models while working with agent mode:
-        * GPT-4.1 (now the Copilot default)
-        * Claude 3.7 Sonnet
-        * Claude 3.7 Sonnet Thinking
-        * o3/04 mini
     3. See [GitHub Documentation](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) for recommendations on which model to use for different tasks. Check out also the [model multipliers](https://docs.github.com/en/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests#model-multipliers) to understand premium request quotations and costs in the new subscription models.
     4. Pay attention to the proactive and interactive nature of Agent mode:
         * Agent mode uses the search index to find relevant content from the workspace
@@ -160,8 +128,9 @@ Individually completed exercises for part 1 of the one-day workshop.
  
     3. To ask Copilot in the CLI to suggest a command, run `gh copilot suggest` followed by the command that you want.
 
+## Model Context Protocol Exercises
 
-### Model Context Protocol recap and Postgres MCP server installation
+### MCP Recap and PostgreSQL MCP
 
 * **Purpose:** Understand how MCP servers work and how they can be run locally
 * **IDE Support:** Generally available (GA) in Copilot Chat for Visual Studio Code, in public preview for Copilot in Visual Studio, JetBrains, Eclipse, and Xcode.
@@ -225,6 +194,25 @@ Individually completed exercises for part 1 of the one-day workshop.
     3. Test the prompt file by typing /er in agent mode. Refine the prompt if Copilot is not able to fulfill the purpose of the prompt.
     4. If you want to see the resulting Mermaid diagram, push the file to a GitHub repository and open the file.
 
+
+### Playwright MCP
+* **Purpose:** Enable the agent mode to use browser
+* **Steps:**
+    1. Read the [documentation](https://github.com/microsoft/playwright-mcp) for the Playwright MCP server
+    2. Add Playwright MCP in this project
+    3. Crete queries that use the web browser. Ideas:
+        * Login to your test environment
+        * Browse to https://duckduckgo.com/, make a query, count the number of search results.
+
+### Context7 MCP
+* **Purpose:** Add up-to-date documentation of your frameworks to the prompt context
+* **Steps:**
+    1. Read the [documentation](https://github.com/upstash/context7) for Context7 
+    2. Add the MCP to the project you're working on at the moment
+    3. Check the example prompts in the documentation above
+    4. Think about how you could benefit from Context7 in your project. See if the libraries in your project are supported by searching them in [context7.com](https://context7.com/)
+
+
 ### Other MCP Servers
 * **Purpose:** Explore and try out other MCP servers
 * **Steps:**
@@ -232,7 +220,6 @@ Individually completed exercises for part 1 of the one-day workshop.
     2. Take a look at some of the other MCP servers available. Try to find ones that you could use to integrate Copilot with your development tools. Some suggestions:
         * [GitHub](https://mcp.so/server/github/modelcontextprotocol)
         * [GitLab](https://mcp.so/server/gitlab/modelcontextprotocol)
-        * [Playwright](https://mcp.so/server/playwright-mcp/microsoft)
         * [Perplexity](https://mcp.so/server/perplexity/ppl-ai)
         * [Slack](https://mcp.so/server/slack/modelcontextprotocol)
 
