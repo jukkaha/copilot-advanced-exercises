@@ -1,0 +1,13 @@
+{
+    "servers": {
+        "postgres": {
+            "command": "docker",
+            "args": [
+                "run", 
+                "-i", 
+                "--rm", 
+                "mcp/postgres", 
+                "postgresql://postgres:postgres@172.17.0.1:5432/library_app"]
+            }
+    }
+}
